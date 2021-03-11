@@ -1,0 +1,7 @@
+{
+  "name": "MoveInMedApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
