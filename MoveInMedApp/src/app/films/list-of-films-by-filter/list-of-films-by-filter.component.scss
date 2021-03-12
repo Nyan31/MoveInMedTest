@@ -1,0 +1,19 @@
+ion-card-header {
+  background-color: lightgray;
+  text-align: center;
+}
+
+ion-card {
+  height: 180px;
+  margin: 20px;
+}
+
+span {
+  width: 50%;
+}
+
+.beautifyLabelDescription {
+  display: flex;
+  justify-content: space-between;
+}
+

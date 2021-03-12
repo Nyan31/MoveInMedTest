@@ -1,9 +1,17 @@
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-title>films</ion-title>
-  </ion-toolbar>
-</ion-header> -->
+<ion-header>
+  <div id="filterAndSortBar">
+    <div class="toogleLabel">
+      <div class="toogleLabel">A-z</div>
+      <ion-toggle (ionChange)="displayFilmBySortParam($event)"></ion-toggle>
+      <div class="toogleLabel">Date</div>
+    </div>
+
+    <ion-select placeholder="Filter by Director" (ionChange)="displayFilmBySelectedDirector($event)">
+      <ion-select-option *ngFor="let director of arrayOfAllDirector">{{director}}</ion-select-option>
+    </ion-select>
+  </div>
+</ion-header>
 
 <ion-content>
-
+  <app-list-of-films-by-filter [arrayOfFilteredFilmsToDisplay]="arrayOfFilteredFilmsToSend"></app-list-of-films-by-filter>
 </ion-content>

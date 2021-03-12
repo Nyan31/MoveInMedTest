@@ -22,23 +22,4 @@ export class FilmsService {
     return this.http.get<any>(this.apiUrl + 'films');
   }
 
-  getAllCharactersFromSpecificMovie(apiUrlSpecificCharacter: string): Observable<People> {
-    return this.http.get<People>(apiUrlSpecificCharacter);
-  }
-
-  getAllPlanetsFromSpecificMovie(apiUrlSpecificPlanets: string): Observable<Planets> {
-    return this.http.get<Planets>(apiUrlSpecificPlanets);
-  }
-
-  getAllStarshipsFromSpecificMovie(apiUrlSpecificStarships: string): Observable<Starships> {
-    return this.http.get<Starships>(apiUrlSpecificStarships);
-  }
-
-  getAllVehiclesFromSpecificMovie(apiUrlSpecificVehicles: string): Observable<Vehicles> {
-    return this.http.get<Vehicles>(apiUrlSpecificVehicles);
-  }
-
-  getAllSpeciesFromSpecificMovie(apiUrlSpecificSpecies: string): Observable<Species> {
-    return this.http.get<Species>(apiUrlSpecificSpecies);
-  }
 }

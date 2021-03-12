@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { FilmsPageRoutingModule } from './films-routing.module';
 
 import { FilmsPage } from './films.page';
+import { ListOfFilmsByFilterComponent } from './list-of-films-by-filter/list-of-films-by-filter.component';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { FilmsPage } from './films.page';
     FormsModule,
     IonicModule,
     FilmsPageRoutingModule
+
   ],
-  declarations: [FilmsPage]
+  declarations: [FilmsPage, ListOfFilmsByFilterComponent]
 })
 export class FilmsPageModule {}

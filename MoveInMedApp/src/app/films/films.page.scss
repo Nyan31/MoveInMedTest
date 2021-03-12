@@ -1,0 +1,42 @@
+ion-toggle {
+  --background: #909ea0;
+  --background-checked: #a55749;
+
+  --handle-background: #57d0db;
+  --handle-background-checked: #da3012;
+}
+
+#filterAndSortBar {
+  display: flex;
+  justify-content: space-around;
+}
+
+.toogleLabel {
+  align-items: center;
+  display: flex;
+}
+
+@keyframes scroll {
+	0% { top: 0%; }
+	100% { top: -20vh; }
+}
+
+// for bonus text animation
+// #titles
+// {
+//   position: relative;
+//   height: 5vh;
+// 	text-align: justify;
+// 	overflow: hidden;
+// 	transform-origin: 50% 100%;
+// 	transform: perspective(300px) rotateX(25deg);
+// }
+
+// #titlecontent
+// {
+//   padding: 0 5px;
+//   margin-top: 15%;
+//   position: relative;
+//   animation: scroll 20s linear 0s infinite;
+//   color: white;
+// }

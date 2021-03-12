@@ -1,0 +1,14 @@
+<ion-card *ngFor="let specificFilm of arrayOfFilteredFilmsToDisplay">
+  <ion-card-header>
+    <!-- <div id="titles">
+        <div id="titlecontent">{{specificFilm.opening_crawl}}</div>
+      </div> -->
+    <ion-card-title>{{ specificFilm.title }}</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <div class="beautifyLabelDescription"><span>- Release date : </span><span>{{ specificFilm.release_date }}</span></div>
+    <div class="beautifyLabelDescription"><span>- Director     : </span><span>{{ specificFilm.director }}</span></div>
+    <div class="beautifyLabelDescription"><span>- Productor    : </span><span>{{ specificFilm.producer }}</span></div>
+  </ion-card-content>
+</ion-card>
