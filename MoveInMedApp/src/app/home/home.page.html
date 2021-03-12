@@ -1,11 +1,11 @@
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-title>home</ion-title>
-  </ion-toolbar>
-</ion-header> -->
-
 <ion-content>
-
-  <ion-button [routerLink]="['/tabs/Films']">films</ion-button>
-
+  <ion-img src="../../assets/death.png" id="deathStarImg"></ion-img>
+  <div id="btnPeople" [routerLink]="['/tabs/Films']">
+    <div class="btnTitleCategory">FILMS</div>
+    <div id="triangle-topleft"></div>
+  </div>
+  <div id="btnFilms" [routerLink]="['/tabs/People']">
+    <div id="triangle-topright"></div>
+    <div class="btnTitleCategory">PEOPLE</div>
+  </div>
 </ion-content>

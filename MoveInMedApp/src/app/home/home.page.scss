@@ -1,0 +1,63 @@
+#triangle-topleft {
+  width: 0;
+  height: 0;
+  border-top: 50px solid lightgray;
+  border-right: 70px solid transparent;
+}
+
+#triangle-topright {
+  width: 0;
+  height: 0;
+  border-top: 50px solid lightgray;
+  border-left: 70px solid transparent;
+}
+
+#deathStarImg {
+  width: 90%;
+  margin: 30px 0 0 10px;
+  transform: translatey(0px);
+  animation: float 4s ease-in-out infinite;
+  margin-top: 10vh;
+}
+
+#btnPeople {
+  display: flex;
+  margin-top: 5vh;
+}
+
+#btnFilms {
+  display: flex;
+  margin-top: 5vh;
+  width: 170px;
+  float: right;
+}
+
+.btnTitleCategory {
+  width: 100px;
+  background-color: lightgray;
+  font-weight: bold;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+#btnPeople:hover {
+  cursor: pointer;
+}
+#btnFilms:hover {
+  cursor: pointer;
+}
+@keyframes float {
+	0% {
+
+		transform: translatey(0px);
+	}
+	50% {
+
+		transform: translatey(-15px);
+	}
+	100% {
+
+		transform: translatey(0px);
+	}
+}
