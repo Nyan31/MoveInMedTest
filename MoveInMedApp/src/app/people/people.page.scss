@@ -7,6 +7,12 @@ ion-card-header {
   text-align: center;
 }
 
+#PaginationNumber {
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
 .sectionOfCardsList {
   height: 75vh;
   overflow-y: scroll;

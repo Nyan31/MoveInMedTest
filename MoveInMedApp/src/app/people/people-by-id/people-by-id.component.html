@@ -39,6 +39,7 @@
         <ion-item *ngFor="let starship of specificPeopleReceived.starships">
           {{starship.name}}
         </ion-item>
+        <ion-item *ngIf="!specificPeopleReceived.starships[0]">n/a</ion-item>
       </ion-list>
     </div>
 
@@ -48,6 +49,7 @@
         <ion-item *ngFor="let vehicle of specificPeopleReceived.vehicles">
           {{vehicle.name}}
         </ion-item>
+        <ion-item *ngIf="!specificPeopleReceived.vehicles[0]">n/a</ion-item>
       </ion-list>
     </div>
 

@@ -1,5 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Films } from 'src/app/models/films';
 import { People } from 'src/app/models/people';
+import { Species } from 'src/app/models/species';
+import { Starships } from 'src/app/models/starships';
+import { Vehicles } from 'src/app/models/vehicles';
 import { PeopleService } from 'src/app/services/people.service';
 
 /**
@@ -44,10 +48,10 @@ export class PeopleByIdComponent implements OnInit {
    */
   getAllDetailsOfCurrentSpecificPeople() {
     console.log(this.specificPeopleReceived);
-    let temporaryArrayOfFilms = [];
-    let temporaryArrayOfSpecies = [];
-    let temporaryArrayOfStarships = [];
-    let temporaryArrayOfVehicles = [];
+    let temporaryArrayOfFilms: Films[] = [];
+    let temporaryArrayOfSpecies: Species[] = [];
+    let temporaryArrayOfStarships: Starships[] = [];
+    let temporaryArrayOfVehicles: Vehicles[] = [];
 
     this.specificPeopleReceived.films.forEach(url => {
       this.peopleService.getFilmOfSpecificPeople(url).subscribe((data) => {
@@ -55,17 +59,17 @@ export class PeopleByIdComponent implements OnInit {
       })
     });
     this.specificPeopleReceived.species.forEach(url => {
-      this.peopleService.getFilmOfSpecificPeople(url).subscribe((data) => {
+      this.peopleService.getSpecieOfSpecificPeople(url).subscribe((data) => {
         temporaryArrayOfSpecies.push(data);
       })
     });
     this.specificPeopleReceived.starships.forEach(url => {
-      this.peopleService.getFilmOfSpecificPeople(url).subscribe((data) => {
+      this.peopleService.getStarshipOfSpecificPeople(url).subscribe((data) => {
         temporaryArrayOfStarships.push(data);
       })
     });
     this.specificPeopleReceived.vehicles.forEach(url => {
-      this.peopleService.getFilmOfSpecificPeople(url).subscribe((data) => {
+      this.peopleService.getVehicleOfSpecificPeople(url).subscribe((data) => {
         temporaryArrayOfVehicles.push(data);
       })
     });

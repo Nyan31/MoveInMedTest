@@ -24,6 +24,7 @@ export class PeoplePage implements OnInit {
 
   specificPeopleToSend: People;
   viewSpecificPeople: boolean = false;
+  currentPagePeople: string = "Page 1";
 
   constructor(private peopleService: PeopleService) {}
 
@@ -53,6 +54,8 @@ export class PeoplePage implements OnInit {
    */
   nextPagePeople() {
     if (this.currentNextPagePeople) {
+      const test = this.currentNextPagePeople.match(/(\d+)(?!.*\d)/g);
+      this.currentPagePeople = "Page " + test[0];
       this.arrayListOfAllPeople = [];
       this.peopleService
         .getSpecificPageOfPeople(this.currentNextPagePeople)
@@ -70,6 +73,8 @@ export class PeoplePage implements OnInit {
    */
   previousPagePeople() {
     if (this.currentPreviousPagePeople) {
+      const test = this.currentPreviousPagePeople.match(/(\d+)(?!.*\d)/g);
+      this.currentPagePeople = "Page " + test[0];
       this.arrayListOfAllPeople = [];
       this.peopleService
         .getSpecificPageOfPeople(this.currentPreviousPagePeople)

@@ -31,8 +31,11 @@
   </section>
 
   <div class="flexStandard">
-    <ion-icon (click)="previousPagePeople()" color="light" name="arrow-back-outline"></ion-icon>
-    <ion-icon (click)="nextPagePeople()" color="light" name="arrow-forward-outline"></ion-icon>
+    <ion-icon *ngIf="currentPreviousPagePeople" (click)="previousPagePeople()" color="light" name="arrow-back-outline"></ion-icon>
+    <ion-icon *ngIf="!currentPreviousPagePeople" color="medium" name="arrow-back-outline"></ion-icon>
+    <div id="PaginationNumber">{{ currentPagePeople }}</div>
+    <ion-icon *ngIf="currentNextPagePeople" (click)="nextPagePeople()" color="light" name="arrow-forward-outline"></ion-icon>
+    <ion-icon *ngIf="!currentNextPagePeople" color="medium" name="arrow-forward-outline"></ion-icon>
   </div>
 
 </ion-content>
