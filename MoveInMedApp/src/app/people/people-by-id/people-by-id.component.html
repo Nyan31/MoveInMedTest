@@ -1,3 +1,52 @@
-<p>
-  people-by-id works!
-</p>
+<div id="toolBarWithReturnBtn">
+  <ion-icon (click)="back()" color="light" name="return-up-back-outline"></ion-icon>
+</div>
+
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>{{specificPeopleReceived.name}}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <div class="beautifyLabelDescription"><span>• Birthyear : </span><span>{{ specificPeopleReceived.birth_year }}</span></div>
+    <div class="beautifyLabelDescription"><span>• Gender     : </span><span>{{ specificPeopleReceived.gender }}</span></div>
+    <div class="beautifyLabelDescription"><span>• Homeworld    : </span><span>{{ specificPeopleReceived.homeworld }}</span></div>
+    <div *ngIf="specificPeopleReceived.species[0]" class="beautifyLabelDescription"><span>• Specie    : </span><span>{{ specificPeopleReceived.species[0].name }}</span></div>
+    <div *ngIf="!specificPeopleReceived.species[0]" class="beautifyLabelDescription"><span>• Specie    : </span><span>n/a</span></div>
+    <hr>
+    <div class="beautifyLabelDescription"><span>• Eye color    : </span><span>{{ specificPeopleReceived.eye_color }}</span></div>
+    <div class="beautifyLabelDescription"><span>• Hair color    : </span><span>{{ specificPeopleReceived.hair_color }}</span></div>
+    <div class="beautifyLabelDescription"><span>• Skin color    : </span><span>{{ specificPeopleReceived.skin_color }}</span></div>
+    <div class="beautifyLabelDescription"><span>• Height    : </span><span>{{ specificPeopleReceived.height }}</span></div>
+    <div class="beautifyLabelDescription"><span>• Mass    : </span><span>{{ specificPeopleReceived.mass }}</span></div>
+<hr>
+    <div *ngIf="specificPeopleReceived.films !== []" class="beautifyLabelDescription">
+      <div class="titleCategory">Films</div>
+      <ion-list>
+        <ion-item *ngFor="let film of specificPeopleReceived.films">
+          {{film.title}}
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <div *ngIf="specificPeopleReceived.starships !== []" class="beautifyLabelDescription">
+      <div class="titleCategory">Starships</div>
+      <ion-list>
+        <ion-item *ngFor="let starship of specificPeopleReceived.starships">
+          {{starship.name}}
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <div *ngIf="specificPeopleReceived.vehicles !== []" class="beautifyLabelDescription">
+      <div class="titleCategory">Vehicles</div>
+      <ion-list>
+        <ion-item *ngFor="let vehicle of specificPeopleReceived.vehicles">
+          {{vehicle.name}}
+        </ion-item>
+      </ion-list>
+    </div>
+
+  </ion-card-content>
+</ion-card>
+
+

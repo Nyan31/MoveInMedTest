@@ -1,0 +1,40 @@
+ion-icon {
+  font-size: 2em;
+}
+
+ion-item {
+  font-size: 13px;
+}
+
+ion-card {
+  margin-top: 8vh;
+}
+
+hr {
+  background-color: black;
+}
+
+#textOfReturnBtn {
+  color: white;
+  margin: 0;
+  align-items: center;
+  display: flex;
+}
+
+.titleCategory {
+  text-align: center;
+  font-size: 16px;
+}
+
+
+#toolBarWithReturnBtn {
+  display: flex;
+  height: 6vh;
+  position: fixed;
+  background-color: black;
+  width: 100%;
+  z-index: 9;
+  top: 0;
+  align-items: center;
+  padding-left: 10px;
+}

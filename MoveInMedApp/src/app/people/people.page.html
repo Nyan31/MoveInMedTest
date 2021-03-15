@@ -2,10 +2,23 @@
 
 </ion-header> -->
 
-<ion-content>
-  <ion-searchbar (keyup)="search($event.target.value)" placeholder="Search a specific character"></ion-searchbar>
-  <section>
-    <ion-card *ngFor="let people of arrayListOfAllPeople">
+<ion-content *ngIf="!viewSpecificPeople">
+  <ion-searchbar (keyup)="search($event.target.value)" [(ngModel)]="currentTextSearched" placeholder="Search a specific character"></ion-searchbar>
+  <section class="sectionOfCardsList" *ngIf="!currentTextSearched">
+    <ion-card *ngFor="let people of arrayListOfAllPeople" (click)="goToViewofSpecificPeople(people)">
+      <ion-card-header>
+        <ion-card-title>{{people.name}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="beautifyLabelDescription"><span>- Birthyear : </span><span>{{ people.birth_year }}</span></div>
+        <div class="beautifyLabelDescription"><span>- Gender     : </span><span>{{ people.gender }}</span></div>
+        <div class="beautifyLabelDescription"><span>- Homeworld    : </span><span>{{ people.homeworld }}</span></div>
+      </ion-card-content>
+    </ion-card>
+  </section>
+
+  <section class="sectionOfCardsList" *ngIf="currentTextSearched">
+    <ion-card *ngFor="let people of tempResultOfPeopleSearch" (click)="goToViewofSpecificPeople(people)">
       <ion-card-header>
         <ion-card-title>{{people.name}}</ion-card-title>
       </ion-card-header>
@@ -22,4 +35,10 @@
     <ion-icon (click)="nextPagePeople()" color="light" name="arrow-forward-outline"></ion-icon>
   </div>
 
+</ion-content>
+
+<ion-content *ngIf="viewSpecificPeople">
+  <section>
+    <app-people-by-id [specificPeopleReceived]="specificPeopleToSend" (viewOfSpecificPeople)="changeCurentViewPeople($event)"></app-people-by-id>
+  </section>
 </ion-content>
