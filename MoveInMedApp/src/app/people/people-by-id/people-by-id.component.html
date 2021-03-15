@@ -6,19 +6,24 @@
   <ion-card-header>
     <ion-card-title>{{specificPeopleReceived.name}}</ion-card-title>
   </ion-card-header>
+
   <ion-card-content>
     <div class="beautifyLabelDescription"><span>• Birthyear : </span><span>{{ specificPeopleReceived.birth_year }}</span></div>
     <div class="beautifyLabelDescription"><span>• Gender     : </span><span>{{ specificPeopleReceived.gender }}</span></div>
     <div class="beautifyLabelDescription"><span>• Homeworld    : </span><span>{{ specificPeopleReceived.homeworld }}</span></div>
     <div *ngIf="specificPeopleReceived.species[0]" class="beautifyLabelDescription"><span>• Specie    : </span><span>{{ specificPeopleReceived.species[0].name }}</span></div>
     <div *ngIf="!specificPeopleReceived.species[0]" class="beautifyLabelDescription"><span>• Specie    : </span><span>n/a</span></div>
+
     <hr>
+
     <div class="beautifyLabelDescription"><span>• Eye color    : </span><span>{{ specificPeopleReceived.eye_color }}</span></div>
     <div class="beautifyLabelDescription"><span>• Hair color    : </span><span>{{ specificPeopleReceived.hair_color }}</span></div>
     <div class="beautifyLabelDescription"><span>• Skin color    : </span><span>{{ specificPeopleReceived.skin_color }}</span></div>
     <div class="beautifyLabelDescription"><span>• Height    : </span><span>{{ specificPeopleReceived.height }}</span></div>
     <div class="beautifyLabelDescription"><span>• Mass    : </span><span>{{ specificPeopleReceived.mass }}</span></div>
-<hr>
+
+    <hr>
+
     <div *ngIf="specificPeopleReceived.films !== []" class="beautifyLabelDescription">
       <div class="titleCategory">Films</div>
       <ion-list>

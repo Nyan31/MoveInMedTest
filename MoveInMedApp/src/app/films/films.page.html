@@ -6,8 +6,8 @@
       <div class="toogleLabel">Date</div>
     </div>
 
-    <ion-select placeholder="Filter by Director" (ionChange)="displayFilmBySelectedDirector($event)">
-      <ion-select-option *ngFor="let director of arrayOfAllDirector">{{director}}</ion-select-option>
+    <ion-select #directorSelect placeholder="Filter by Director" (ionChange)="displayFilmBySelectedDirector($event)">
+      <ion-select-option [value]="director" *ngFor="let director of arrayOfAllDirector">{{director}}</ion-select-option>
     </ion-select>
   </div>
 </ion-header>

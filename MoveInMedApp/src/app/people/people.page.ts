@@ -2,6 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { People } from '../models/people';
 import { PeopleService } from '../services/people.service';
 
+/**
+ * This page display the list of all people.
+ * It's can filter by lastanem, firstname and homeworld.
+ * You can click on specific people for display more details.
+ */
 @Component({
   selector: 'app-people',
   templateUrl: './people.page.html',
@@ -22,12 +27,15 @@ export class PeoplePage implements OnInit {
 
   constructor(private peopleService: PeopleService) {}
 
+  /**
+   * People page Initialisation
+   */
   ngOnInit() {
     this.getAllDataPeople();
   }
 
   /**
-   * Call films service for get all data of movies
+   * Call films service for get all data of movies in first page
    * Get details data for each api url array
    */
   getAllDataPeople() {
@@ -40,6 +48,9 @@ export class PeoplePage implements OnInit {
     });
   }
 
+  /**
+   * Call films service for get all data of movies in next page
+   */
   nextPagePeople() {
     if (this.currentNextPagePeople) {
       this.arrayListOfAllPeople = [];
@@ -54,6 +65,9 @@ export class PeoplePage implements OnInit {
     }
   }
 
+  /**
+   * Call films service for get all data of movies in previous page
+   */
   previousPagePeople() {
     if (this.currentPreviousPagePeople) {
       this.arrayListOfAllPeople = [];
@@ -68,6 +82,9 @@ export class PeoplePage implements OnInit {
     }
   }
 
+  /**
+   * Call films service for get homeworld of all people siplay in current page
+   */
   getHomeWorldOfCurrentListPeople() {
     this.arrayListOfAllPeople.forEach((people) => {
       this.peopleService
@@ -78,11 +95,15 @@ export class PeoplePage implements OnInit {
     });
   }
 
+  /**
+   * Search fct for find specific people by lastname/firstname/homeworld
+   * @param event text in searchbar
+   */
   search(e) {
     this.currentTextSearched = e;
     this.tempResultOfPeopleSearch = [];
     this.arrayOfPeopleFromSearch.forEach(element => {
-      if(element.name.toLowerCase().includes(e.toString().toLowerCase())) {
+      if(element.name.toLowerCase().includes(e.toString().toLowerCase()) || element.homeworld.toLowerCase().includes(e.toString().toLowerCase())) {
         const check = this.tempResultOfPeopleSearch.find(e => e.name === element.name);
         if(!check) {
           this.tempResultOfPeopleSearch.push(element);
@@ -91,6 +112,10 @@ export class PeoplePage implements OnInit {
     });
   }
 
+  /**
+   * fct for get all people, replace url homeworld by data homeworld and push them in array used in search.
+   * @param data list of all people received by the api.
+   */
   getAllPeopleForArraySearch(data) {
     let nbOfPages = (Math.ceil(data.count / 10) * 10) / 10;
     this.arrayOfPeopleFromSearch = this.arrayListOfAllPeople;
@@ -113,11 +138,20 @@ export class PeoplePage implements OnInit {
     }
   }
 
+  /**
+   * fct launched on click in specific people list.
+   * Display people-by-id component with specific people data.
+   * @param specificPeople specific people from api.
+   */
   goToViewofSpecificPeople(specificPeople: People) {
     this.specificPeopleToSend = specificPeople;
     this.viewSpecificPeople = true;
   }
 
+  /**
+   * fct to hide people-by-id component & display the list of people.
+   * @param event
+   */
   changeCurentViewPeople(e) {
     this.viewSpecificPeople = false;
   }

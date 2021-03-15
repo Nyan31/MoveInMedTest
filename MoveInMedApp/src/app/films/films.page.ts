@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonSelect } from '@ionic/angular';
 import { Films } from '../models/films';
 import { FilmsService } from '../services/films.service';
 
@@ -19,6 +20,9 @@ export class FilmsPage implements OnInit {
   displayArrayFilmByDirector: Films[];
   arrayOfFilteredFilmsToSend: Films[];
 
+  // refer to the director select via the template reference
+  @ViewChild('directorSelect') directorSelect: IonSelect;
+
   constructor(private filmsService: FilmsService) {}
 
   /**
@@ -26,6 +30,7 @@ export class FilmsPage implements OnInit {
    */
   ngOnInit() {
     this.getAllDataMovies();
+
   }
 
   /**
@@ -51,6 +56,7 @@ export class FilmsPage implements OnInit {
    * @param sortChoice by alphabetic order or by release date
    */
   displayFilmBySortParam(sortChoice) {
+    this.directorSelect.value = '';
     if(!sortChoice.detail.checked) {
       this.filmsGlobalInformations.sort((a, b) => a.title.localeCompare(b.title));
     } else {
@@ -71,5 +77,6 @@ export class FilmsPage implements OnInit {
       }
     });
     this.arrayOfFilteredFilmsToSend = this.displayArrayFilmByDirector;
+
   }
 }

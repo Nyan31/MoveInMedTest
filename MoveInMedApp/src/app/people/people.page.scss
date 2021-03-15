@@ -2,6 +2,11 @@ ion-icon {
   font-size: 30px;
 }
 
+ion-card-header {
+  background-color: lightgray;
+  text-align: center;
+}
+
 .sectionOfCardsList {
   height: 75vh;
   overflow-y: scroll;

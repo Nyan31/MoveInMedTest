@@ -2,6 +2,9 @@ import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@
 import { People } from 'src/app/models/people';
 import { PeopleService } from 'src/app/services/people.service';
 
+/**
+ * This page display all details of a specific people.
+ */
 @Component({
   selector: 'app-people-by-id',
   templateUrl: './people-by-id.component.html',
@@ -12,22 +15,35 @@ export class PeopleByIdComponent implements OnInit {
   @Input() specificPeopleReceived: People;
   @Output() viewOfSpecificPeople = new EventEmitter<boolean>();
 
-  specificPeopleToDisplay: People;
-
   constructor(private peopleService: PeopleService) { }
 
+  /**
+   * Specific people component Initialisation
+   */
   ngOnInit() {}
 
+  /**
+   * Onchange fct to listen and get details of specific people received.
+   * @param changes to listen change in component.
+   */
   ngOnChanges(changes: SimpleChanges) {
-    this.specificPeopleToDisplay = this.specificPeopleReceived;
-    this.getAllDetailsOfCurrentSpecificPeople();
+    if(!this.specificPeopleReceived.films[0].title){
+      this.getAllDetailsOfCurrentSpecificPeople();
+    }
   }
 
+  /**
+   * Simple output for redirect user to the list of people page.
+   */
   back() {
     this.viewOfSpecificPeople.emit(false);
   }
 
+  /**
+   * Fct to get all urls in films/species/starships/vehicles to transform in data.
+   */
   getAllDetailsOfCurrentSpecificPeople() {
+    console.log(this.specificPeopleReceived);
     let temporaryArrayOfFilms = [];
     let temporaryArrayOfSpecies = [];
     let temporaryArrayOfStarships = [];
