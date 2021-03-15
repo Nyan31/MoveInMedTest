@@ -9,15 +9,10 @@ import { Films } from 'src/app/models/films';
   templateUrl: './list-of-films-by-filter.component.html',
   styleUrls: ['./list-of-films-by-filter.component.scss'],
 })
-export class ListOfFilmsByFilterComponent implements OnInit {
+export class ListOfFilmsByFilterComponent {
 
   @Input() arrayOfFilteredFilmsToDisplay: Films[];
 
   constructor() { }
-
-  ngOnInit() {}
-
-  ngOnChanges(changes: SimpleChanges) {
-  }
 
 }

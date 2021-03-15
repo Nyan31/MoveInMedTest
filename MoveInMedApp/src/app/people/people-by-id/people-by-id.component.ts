@@ -47,7 +47,6 @@ export class PeopleByIdComponent implements OnInit {
    * Fct to get all urls in films/species/starships/vehicles to transform in data.
    */
   getAllDetailsOfCurrentSpecificPeople() {
-    console.log(this.specificPeopleReceived);
     let temporaryArrayOfFilms: Films[] = [];
     let temporaryArrayOfSpecies: Species[] = [];
     let temporaryArrayOfStarships: Starships[] = [];

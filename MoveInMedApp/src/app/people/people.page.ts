@@ -54,8 +54,8 @@ export class PeoplePage implements OnInit {
    */
   nextPagePeople() {
     if (this.currentNextPagePeople) {
-      const test = this.currentNextPagePeople.match(/(\d+)(?!.*\d)/g);
-      this.currentPagePeople = "Page " + test[0];
+      const temporaryNumberOfCurrentPage = this.currentNextPagePeople.match(/(\d+)(?!.*\d)/g);
+      this.currentPagePeople = "Page " + temporaryNumberOfCurrentPage[0];
       this.arrayListOfAllPeople = [];
       this.peopleService
         .getSpecificPageOfPeople(this.currentNextPagePeople)
