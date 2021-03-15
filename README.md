@@ -11,6 +11,7 @@ This project is a technical test for the integration of a star wars API in a hyb
 - ``git clone https://github.com/Nyan31/MoveInMedTest.git``
 - ``npm install``
 - ``ionic serve``
+- (Ne pas oubliez de passer le navigateur en vue adaptative pour un rendu mobile)
 
 
 ## Fabriqué avec
