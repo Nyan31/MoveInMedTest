@@ -1,17 +1,10 @@
 # MoveInMedTest
-***
-This project is a technical test for the integration of a star wars API in a hybrid ionic application
-## Pour commencer
-
-Entrez ici les instructions pour bien débuter avec votre projet...
+This project is a technical test for the integration of a star wars API in a hybrid ionic application.
 
 ### Pré-requis
 
-Ce qu'il est requis pour commencer avec votre projet...
-
-- Programme 1
-- Programme 2
-- etc...
+- Npm : https://www.npmjs.com/get-npm
+- Ionic : ``npm install -g @ionic/cli``
 
 ### Installation & Démarrage
 
