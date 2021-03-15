@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { People } from '../models/people';
 import { PeopleService } from '../services/people.service';
 
@@ -8,13 +8,17 @@ import { PeopleService } from '../services/people.service';
   styleUrls: ['./people.page.scss'],
 })
 export class PeoplePage implements OnInit {
+
   arrayListOfAllPeople = [];
   currentPreviousPagePeople: string;
   currentNextPagePeople: string;
 
-  currentTextSearched: string;
+  currentTextSearched: string = '';
   arrayOfPeopleFromSearch = [];
   tempResultOfPeopleSearch = [];
+
+  specificPeopleToSend: People;
+  viewSpecificPeople: boolean = false;
 
   constructor(private peopleService: PeopleService) {}
 
@@ -75,6 +79,7 @@ export class PeoplePage implements OnInit {
   }
 
   search(e) {
+    this.currentTextSearched = e;
     this.tempResultOfPeopleSearch = [];
     this.arrayOfPeopleFromSearch.forEach(element => {
       if(element.name.toLowerCase().includes(e.toString().toLowerCase())) {
@@ -106,5 +111,14 @@ export class PeoplePage implements OnInit {
           });
         });
     }
+  }
+
+  goToViewofSpecificPeople(specificPeople: People) {
+    this.specificPeopleToSend = specificPeople;
+    this.viewSpecificPeople = true;
+  }
+
+  changeCurentViewPeople(e) {
+    this.viewSpecificPeople = false;
   }
 }
